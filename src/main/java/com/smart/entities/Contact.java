@@ -1,6 +1,5 @@
 package com.smart.entities;
 
-import org.hibernate.annotations.ManyToAny;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -23,7 +22,7 @@ public class Contact {
 	private String email;
 	private String phone;
 	private String image;
-	@Column(length = 50000)
+	@Column(length = 500)
 	private String description;
 	
 	@ManyToOne()
