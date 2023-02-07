@@ -11,17 +11,5 @@ import com.smart.entities.User1;
 @Controller
 public class HomeController {
 
-	@Autowired
-	private UserRepository userRepository;
 	
-	@GetMapping("/test")
-	@ResponseBody
-	public String test()
-	{
-		User1 user1 = new User1();
-		user1.setName("Samyak Jain");
-		user1.setEmail("samyakjain@gmail.com");
-		userRepository.save(user1);
-		return "working";
-	}
 }

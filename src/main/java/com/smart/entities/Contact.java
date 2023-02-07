@@ -22,18 +22,18 @@ public class Contact {
 	private String email;
 	private String phone;
 	private String image;
-	@Column(length = 500)
+	@Column(length = 1000)
 	private String description;
 	
 	@ManyToOne()
-	private User1 user;
+	private User1 user1;
 	
 	
 	public User1 getUser() {
-		return user;
+		return user1;
 	}
-	public void setUser(User1 user) {
-		this.user = user;
+	public void setUser(User1 user1) {
+		this.user1 = user1;
 	}
 	public int getcID() {
 		return cID;

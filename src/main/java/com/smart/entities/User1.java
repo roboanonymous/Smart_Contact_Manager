@@ -27,10 +27,10 @@ public class User1 {
 	private String role;
 	private boolean enabled;
 	private String imageURL;
-//	@Column(length = 500)
+	@Column(length = 500)
 	private String about;
 	
-	@OneToMany (cascade = CascadeType.ALL , fetch = FetchType.LAZY)
+	@OneToMany (cascade = CascadeType.ALL , fetch = FetchType.LAZY, mappedBy = "user1")
 	private List<Contact> contacts = new ArrayList<>();
 	
 	
