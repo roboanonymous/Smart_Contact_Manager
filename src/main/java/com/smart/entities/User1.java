@@ -14,8 +14,8 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name="USER")
-public class User {
+@Table(name="USER1")
+public class User1 {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -27,8 +27,9 @@ public class User {
 	private String role;
 	private boolean enabled;
 	private String imageURL;
-	@Column(length = 500)
+//	@Column(length = 500)
 	private String about;
+	
 	@OneToMany (cascade = CascadeType.ALL , fetch = FetchType.LAZY)
 	private List<Contact> contacts = new ArrayList<>();
 	
@@ -39,7 +40,7 @@ public class User {
 	public void setContacts(List<Contact> contacts) {
 		this.contacts = contacts;
 	}
-	public User() {
+	public User1() {
 		super();
 		// TODO Auto-generated constructor stub
 	}

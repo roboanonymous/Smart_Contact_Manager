@@ -26,13 +26,13 @@ public class Contact {
 	private String description;
 	
 	@ManyToOne()
-	private User user;
+	private User1 user;
 	
 	
-	public User getUser() {
+	public User1 getUser() {
 		return user;
 	}
-	public void setUser(User user) {
+	public void setUser(User1 user) {
 		this.user = user;
 	}
 	public int getcID() {

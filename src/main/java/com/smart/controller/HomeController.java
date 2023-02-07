@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.smart.dao.UserRepository;
-import com.smart.entities.User;
+import com.smart.entities.User1;
 
 @Controller
 public class HomeController {
@@ -18,10 +18,10 @@ public class HomeController {
 	@ResponseBody
 	public String test()
 	{
-		User user = new User();
-		user.setName("Samyak Jain");
-		user.setEmail("samyakjain@gmail.com");
-		userRepository.save(user);
+		User1 user1 = new User1();
+		user1.setName("Samyak Jain");
+		user1.setEmail("samyakjain@gmail.com");
+		userRepository.save(user1);
 		return "working";
 	}
 }
