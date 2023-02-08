@@ -3,10 +3,14 @@ body
 	background: #e2e2e2!important;
 }
 
+
+/* Navbar Colour */
 .bg-primary
 {
 	background: #009688 !important;
 }
+
+/* set background image */
 .banner
 {
 	width:100%;
@@ -14,4 +18,11 @@ body
 	background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)) ,url(../img/banner.jpg);
 	background-size:cover;
 	color:white;
+}
+
+/* Register here form */
+.my-card
+{
+	padding:20px;
+	background: #ffffff !important;
 }

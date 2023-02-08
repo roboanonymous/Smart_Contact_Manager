@@ -13,6 +13,7 @@ import com.smart.entities.User1;
 @Controller
 public class HomeController {
 
+	// Home Handler
 	@RequestMapping("/")
 	public String home(Model model)
 	{
@@ -20,6 +21,7 @@ public class HomeController {
 		return "home";
 	}
 	
+	// About Handler
 	@RequestMapping("/about")
 	public String about(Model model)
 	{
@@ -27,6 +29,7 @@ public class HomeController {
 		return "about";
 	}
 	
+	// Signup Handler
 	@RequestMapping("/signup")
 	public String signup(Model model)
 	{
