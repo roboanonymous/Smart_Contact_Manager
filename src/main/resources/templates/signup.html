@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en"  xmls:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+<html lang="en"  xmls:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
 <head>
 	<meta charset="UTF-8" />
 	<title>this is about page</title>
@@ -25,24 +25,35 @@
     			   <label for="exampleInputEmail1" class="form-label">Your Name</label>
     				<input name="name" type="text" class="form-control" id="name_field" 
     				aria-describedby="emailHelp" placeholder="Enter here" required th:value="${user1.name}">
+    				</div>
+    				
     				
     				 <!-- Email field -->
 	               <div class="mb-3">
     			   <label for="exampleInputEmail1" class="form-label"> Email</label>
-    				<input name="email" type="email" class="form-control" id="email_field" 
-    				aria-describedby="emailHelp" placeholder="Enter here" required th:value="${user1.email}>
+    				<input name="email" type="email" class="form-control" id="email_field" 	aria-describedby="emailHelp" placeholder="Enter here" required th:value="${user1.email}">
+    				</div>
     				
-    				 <!-- Password field -->
+    				
+    			    <!-- Password field -->
 	               <div class="mb-3">
     			   <label for="exampleInputEmail1" class="form-label">Password</label>
     				<input name="password" type="password" class="form-control" id="password_field" 
     				aria-describedby="emailHelp" placeholder="Enter here" required>
-  					</div>
+    				</div>
   					
-  					 <!--user about field -->
-	               <div >
-				  <textarea th:value="${user1.about} placeholder="Describe yourself here..." class="form-control" style="height: 200px"></textarea>
-				   </div>
+  					<!-- user about fields -->
+								<div class="form-group">
+									<textarea  
+													id="about-field" 
+													class="form-control"				
+													name="about"
+													th:text="${user1.about}" 			
+													placeholder="Enter something about yourself" 
+													rows="5"></textarea>
+												
+								
+								</div>
 				   
 				   
 				  <!-- terms and conditions agreement -->

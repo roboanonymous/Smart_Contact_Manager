@@ -92,6 +92,13 @@ public class User1 {
 	public void setAbout(String about) {
 		this.about = about;
 	}
-		
+	@Override
+	public String toString() {
+		return "User1 [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", role=" + role
+				+ ", enabled=" + enabled + ", imageURL=" + imageURL + ", about=" + about + ", contacts=" + contacts
+				+ "]";
+	}
+	
+	
 	
 }
