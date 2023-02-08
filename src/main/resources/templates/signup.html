@@ -18,30 +18,45 @@
 	               
 	               <h1 class="text-center"> Register Here !!</h1>
 	               
-	               <form action="" th:action="@{/do_register}" method = "post"> 
+	               <form action="" th:action="@{/do_register}" method = "post" th:object"${user1}"> 
 	               
 	               <!-- Name field -->
 	               <div class="mb-3">
     			   <label for="exampleInputEmail1" class="form-label">Your Name</label>
-    				<input type="text" class="form-control" id="name_field" aria-describedby="emailHelp" placeholder="Enter here" required>
+    				<input name="name" type="text" class="form-control" id="name_field" 
+    				aria-describedby="emailHelp" placeholder="Enter here" required th:value="${user1.name}">
     				
     				 <!-- Email field -->
 	               <div class="mb-3">
     			   <label for="exampleInputEmail1" class="form-label"> Email</label>
-    				<input type="email" class="form-control" id="email_field" aria-describedby="emailHelp" placeholder="Enter here" required>
+    				<input name="email" type="email" class="form-control" id="email_field" 
+    				aria-describedby="emailHelp" placeholder="Enter here" required th:value="${user1.email}>
     				
     				 <!-- Password field -->
 	               <div class="mb-3">
     			   <label for="exampleInputEmail1" class="form-label">Password</label>
-    				<input type="password" class="form-control" id="password_field" aria-describedby="emailHelp" placeholder="Enter here" required>
+    				<input name="password" type="password" class="form-control" id="password_field" 
+    				aria-describedby="emailHelp" placeholder="Enter here" required>
   					</div>
   					
   					 <!--user about field -->
 	               <div >
-				  <textarea placeholder="Describe yourself here..." class="form-control" style="height: 200px"></textarea>
+				  <textarea th:value="${user1.about} placeholder="Describe yourself here..." class="form-control" style="height: 200px"></textarea>
 				   </div>
+				   
+				   
+				  <!-- terms and conditions agreement -->
+								<div  class="form-group form-check ">
+									<input 
+												type="checkbox" 
+												class="form-check-input" 
+												name="agreement" 
+												/>
+									<label for="agreement" class="">Accept terms and condition</label>
+								</div>
 				  
 				  <div class="container text-center">
+				  
 				  
 				  <button type="submit" class="btn bg-primary btn-block text-white"> Submit</button>
 				  <button type="reset" class="btn bg-warning btn-block"> Reset</button>
