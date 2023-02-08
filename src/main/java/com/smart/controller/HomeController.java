@@ -13,7 +13,7 @@ import com.smart.entities.User1;
 @Controller
 public class HomeController {
 
-	@RequestMapping("/home")
+	@RequestMapping("/")
 	public String home(Model model)
 	{
 		model.addAttribute("title", "Home - smart contact Manager");
