@@ -3,6 +3,7 @@ package com.smart.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,6 +16,7 @@ import com.smart.entities.User1;
 import com.smart.helper.Message;
 
 import jakarta.servlet.http.HttpSession;
+import jakarta.validation.Valid;
 
 @Controller
 public class HomeController {
@@ -48,13 +50,21 @@ public class HomeController {
 	  //handler for registering user
 	  
 	 @RequestMapping(value ="/do_register", method=RequestMethod.POST)
-	 public String registerUser(@ModelAttribute("user1") User1 user1, @RequestParam(value= "agreement" , defaultValue = "false") boolean agreement , Model model, HttpSession session) {
+	 public String registerUser(@Valid @ModelAttribute("user1") User1 user1, @RequestParam(value= "agreement" , defaultValue = "false") boolean agreement , Model model, 
+			 BindingResult result1 ,HttpSession session) {
 	  
 		 try {
 			 if(!agreement)
 			 {
 				 System.out.println("You have not check terms and conditions");
 				 throw new Exception("You have not check terms and conditions");
+			 }
+			 
+			 if(result1.hasErrors())
+			 {
+				 System.out.println("Error " + result1.toString());
+				 model.addAttribute("user1" , user1);
+				 return "signup";
 			 }
 			 
 			 user1.setRole("Role_User");
