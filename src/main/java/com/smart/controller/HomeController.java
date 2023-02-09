@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.smart.dao.UserRepository;
 import com.smart.entities.User1;
+import com.smart.helper.Message;
+
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class HomeController {
@@ -45,25 +48,39 @@ public class HomeController {
 	  //handler for registering user
 	  
 	 @RequestMapping(value ="/do_register", method=RequestMethod.POST)
-	 public String registerUser(@ModelAttribute("user1") User1 user1, @RequestParam(value= "agreement" , defaultValue = "false") boolean agreement , Model model) {
+	 public String registerUser(@ModelAttribute("user1") User1 user1, @RequestParam(value= "agreement" , defaultValue = "false") boolean agreement , Model model, HttpSession session) {
 	  
-		 if(!agreement)
-		 {
-			 System.out.println("You have not check terms and conditions");
+		 try {
+			 if(!agreement)
+			 {
+				 System.out.println("You have not check terms and conditions");
+				 throw new Exception("You have not check terms and conditions");
+			 }
+			 
+			 user1.setRole("Role_User");
+			 user1.setEnabled(true);
+			 user1.setImageURL("default.png");
+			 
+			 User1 result = this.userRepository.save(user1);
+			 
+			 System.out.println("Agreement" + agreement); 
+		     System.out.println("USER1" + user1); 
+		     
+		     model.addAttribute("user1" ,new User1());
+		     session.setAttribute("message", new Message ("Successful Registration ", "alert-success"));
+			 return "signup"; 
+		 
+			 
 		 }
+		 catch (Exception e) {
+			// TODO: handle exception
+			 e.printStackTrace();
+			 model.addAttribute("user1", user1);
+			 session.setAttribute("message", new Message ("Something went wrong !! " + e.getMessage(), "alert-error"));
+			 return "signup"; 
+		}
 		 
-		 user1.setRole("Role_User");
-		 user1.setEnabled(true);
-		 user1.setImageURL("default.png");
 		 
-		 User1 result = this.userRepository.save(user1);
-		 
-		 System.out.println("Agreement" + agreement); 
-	     System.out.println("USER1" + user1); 
-	     
-	     model.addAttribute("user1" ,result);
-	     return "signup"; 
-	 
 	 }
 	 
 
