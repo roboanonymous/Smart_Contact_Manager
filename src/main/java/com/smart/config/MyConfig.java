@@ -70,17 +70,6 @@ public class MyConfig {
 		return build;
 	}
 	
-	/*
-	 * protected void configure(AuthenticationManagerBuilder auth) throws Exception
-	 * { auth.authenticationProvider(this.authenticationProvider()); }
-	 * 
-	 * 
-	 * @Override protected void configure(HttpSecurity http) throws Exception {
-	 * http.authorizeRequests() .antMatchers("/admin/**").hasRole("ADMIN")
-	 * .antMatchers("/user/**").hasRole("USER")
-	 * .antMatchers("/**").permitAll().and().formLogin() .loginPage("/signin")
-	 * .loginProcessingUrl("/login-process"). defaultSuccessUrl("/user/index")
-	 * .and().csrf().disable(); }
-	 */
+	
 	
 }

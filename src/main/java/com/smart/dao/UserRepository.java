@@ -8,7 +8,7 @@ import com.smart.entities.User1;
 
 public interface UserRepository extends JpaRepository<User1, Integer> {
 
-	@Query("select u from user1 u where u.email = : email")
+	@Query("select u from User1 u WHERE u.email = :email")
 	public User1 getUserbyUsername(@Param("email") String email);
 	
 	
