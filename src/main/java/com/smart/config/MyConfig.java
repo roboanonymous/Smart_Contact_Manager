@@ -15,6 +15,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.DefaultSecurityFilterChain;
 import org.springframework.security.web.SecurityFilterChain;
 
+
 @Configuration
 @EnableWebSecurity
 public class MyConfig {
@@ -57,11 +58,11 @@ public class MyConfig {
 		authorizeHttpRequests()
 		.requestMatchers("/admin/**").hasRole("ADMIN")
 		.requestMatchers("/user/**").hasRole("USER")
-		.requestMatchers("/**").permitAll().and().formLogin()
-		.loginPage("/signin")
-		.loginProcessingUrl("/login-process").
-		defaultSuccessUrl("/user/index")
-		.and().csrf().disable();
+		.requestMatchers("/**").permitAll().and().formLogin(form -> form
+				.loginPage("/signin")
+				.permitAll()
+			)
+		.csrf().disable();
 		
 		http.authenticationProvider(authenticationProvider());
 		
@@ -69,6 +70,7 @@ public class MyConfig {
 		
 		return build;
 	}
+	
 	
 	
 	

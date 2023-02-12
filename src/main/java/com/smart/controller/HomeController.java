@@ -52,8 +52,7 @@ public class HomeController {
 	}
 
 	
-	  //handler for registering user
-	  
+	  //handler for registering user  
 	 @RequestMapping(value ="/do_register", method=RequestMethod.POST)
 	 public String registerUser(@Valid @ModelAttribute("user1") User1 user1, @RequestParam(value= "agreement" , defaultValue = "false") boolean agreement , Model model, 
 			 BindingResult result1 ,HttpSession session) {
@@ -72,7 +71,7 @@ public class HomeController {
 				 return "signup";
 			 }
 			 
-			 user1.setRole("Role_User");
+			 user1.setRole("Role_USER");
 			 user1.setEnabled(true);
 			 user1.setImageURL("default.png");
 			 user1.setPassword(passwordEncoder.encode(user1.getPassword()));
@@ -100,4 +99,10 @@ public class HomeController {
 	 }
 	 
 
+	 //Handler for Custom logic
+		@GetMapping("/signin")
+		public String login(Model model) {
+			model.addAttribute("title", "Login : Smart contact Manager");
+			return "login";
+		}
 }
