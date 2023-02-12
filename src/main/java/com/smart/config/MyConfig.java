@@ -57,7 +57,7 @@ public class MyConfig {
 		http.
 		authorizeHttpRequests()
 		.requestMatchers("/admin/**").hasRole("ADMIN")
-		.requestMatchers("/user/**").permitAll()
+	    .requestMatchers("/user/**").hasRole("USER")
 		.requestMatchers("/**").permitAll().and()
 		.formLogin(form -> form
 				.loginPage("/signin")

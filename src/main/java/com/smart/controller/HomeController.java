@@ -71,7 +71,7 @@ public class HomeController {
 				 return "signup";
 			 }
 			 
-			 user1.setRole("Role_USER");
+			 user1.setRole("ROLE_USER");
 			 user1.setEnabled(true);
 			 user1.setImageURL("default.png");
 			 user1.setPassword(passwordEncoder.encode(user1.getPassword()));
