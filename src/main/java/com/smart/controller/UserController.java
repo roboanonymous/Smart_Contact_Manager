@@ -22,13 +22,13 @@ public class UserController {
 	@RequestMapping("/index")
 	public String dashboard(Model model , Principal principal)
 	{
-		/*
-		 * String username = principal.getName();
-		 * 
-		 * User1 user1 = UserRepository.getUserbyUsername(username);
-		 * 
-		 * model.addAttribute("user1", user1);
-		 */
+		
+		  String username = principal.getName();
+		  
+		  User1 user1 = UserRepository.getUserbyUsername(username);
+		  
+		  model.addAttribute("user1", user1);
+		 
 		
 		return "normal/user_dashboard";
 	}
