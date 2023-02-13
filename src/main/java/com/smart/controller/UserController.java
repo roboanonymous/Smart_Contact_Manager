@@ -1,10 +1,14 @@
 package com.smart.controller;
 
 import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.security.Principal;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -74,19 +78,51 @@ public class UserController {
 	 *respective users account
 	 **/
 	@PostMapping("/process-contact")
-	public String processAddContact( @ModelAttribute Contact contact , Principal principal) {
-		
-		String name = principal.getName();
-		User1 user1 = this.UserRepository.getUserbyUsername(name);
-		contact.setUser(user1);
-		user1.getContacts().add(contact);
-		
-		this.UserRepository.save(user1);
+	public String processAddContact(@Valid @ModelAttribute Contact contact, BindingResult result ,@RequestParam("profileImage") MultipartFile file,Principal principal, Model model, HttpSession session) {
 		
 		
-		System.out.println("Data  " + contact);
-		System.out.println("Added to Database");
 		
+		try {
+			
+			String name = principal.getName();
+			User1 user1 = this.UserRepository.getUserbyUsername(name);
+			
+			//processing and Uploading File
+			if(file.isEmpty())
+			{
+				// if the file is empty
+				System.out.println("File is empty");
+				
+			}
+			
+			else
+			{
+				// file the file to folder
+				contact.setImage(file.getOriginalFilename());
+				File saveFile =new ClassPathResource("static/img").getFile();
+				
+				java.nio.file.Path path = Paths.get(saveFile.getAbsolutePath()+File.separator+file.getOriginalFilename());
+				Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+				
+				System.out.println("Image is uploaded");
+			}
+			
+			
+			
+			contact.setUser(user1);
+			user1.getContacts().add(contact);
+			
+			this.UserRepository.save(user1);
+			
+			
+			System.out.println("Data  " + contact);
+			System.out.println("Added to Database");
+			
+			
+		} catch (Exception e) {
+			System.out.println("Error " + e.getMessage());
+			e.printStackTrace();
+		}
 
 		return "normal/add_contact_form";
 	}
