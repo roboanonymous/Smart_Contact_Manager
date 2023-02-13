@@ -83,12 +83,7 @@ public class Contact {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	@Override
-	public String toString() {
-		return "Contact [cID=" + cID + ", name=" + name + ", secondName=" + secondName + ", work=" + work + ", email="
-				+ email + ", phone=" + phone + ", image=" + image + ", description=" + description + ", user1=" + user1
-				+ "]";
-	}
+	
 	
 	
 	

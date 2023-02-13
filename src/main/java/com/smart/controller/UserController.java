@@ -74,9 +74,19 @@ public class UserController {
 	 *respective users account
 	 **/
 	@PostMapping("/process-contact")
-	public String processAddContact( @ModelAttribute Contact contact) {
-
+	public String processAddContact( @ModelAttribute Contact contact , Principal principal) {
+		
+		String name = principal.getName();
+		User1 user1 = this.UserRepository.getUserbyUsername(name);
+		contact.setUser(user1);
+		user1.getContacts().add(contact);
+		
+		this.UserRepository.save(user1);
+		
+		
 		System.out.println("Data  " + contact);
+		System.out.println("Added to Database");
+		
 
 		return "normal/add_contact_form";
 	}
