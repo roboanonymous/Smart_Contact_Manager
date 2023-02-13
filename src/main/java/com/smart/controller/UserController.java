@@ -22,6 +22,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.smart.dao.UserRepository;
 import com.smart.entities.Contact;
 import com.smart.entities.User1;
+import com.smart.helper.Message;
 
 import jakarta.persistence.criteria.Path;
 import jakarta.servlet.http.HttpSession;
@@ -118,10 +119,14 @@ public class UserController {
 			System.out.println("Data  " + contact);
 			System.out.println("Added to Database");
 			
+			/** success message alert */
+			session.setAttribute("message", new Message("Contact saved successfully.....!!", "success"));
+			
 			
 		} catch (Exception e) {
 			System.out.println("Error " + e.getMessage());
 			e.printStackTrace();
+			session.setAttribute("message", new Message("Something goes wrong, please try again.....!!", "danger"));
 		}
 
 		return "normal/add_contact_form";
