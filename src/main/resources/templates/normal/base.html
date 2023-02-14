@@ -99,7 +99,9 @@
 		
 		<script>
 		
-		function deleteContact(cId){
+
+		
+		function deleteContact(cID){
 		
 			swal({
 				  title: "Are you sure?",
@@ -110,7 +112,7 @@
 				})
 				.then((willDelete) => {
 				  if (willDelete) {
-				    window.location="/user/delete-contact/"+cId;
+				    window.location="/user/delete/"+cID;
 				  } else {
 				    swal("Good.. Your contact is saved !");
 				  }

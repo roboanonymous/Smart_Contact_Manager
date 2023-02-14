@@ -187,5 +187,22 @@ public class UserController {
 		
 		return "normal/show_user_contact_details";
 	}
+	
+	/** deleting contact from given user lists */
+	@GetMapping("/delete/{cID}")
+	public String deleteContact(@PathVariable("cID") Integer cID, Principal principal, Model model ) {
+		String currentUser = principal.getName();
+		
+		Optional<Contact> contactoptional = this.ContactRepository.findById(cID);
+		Contact contact = contactoptional.get();
+		
+        contact.setUser(null);
+      
+		this.ContactRepository.delete(contact);
+		
+		
+		 
+		return "redirect:/user/show-contacts/0";
+	}
 
 }
