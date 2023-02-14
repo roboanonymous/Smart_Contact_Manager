@@ -180,9 +180,9 @@ public class UserController {
 		Optional<Contact> contactoptional = this.ContactRepository.findById(cID);
 		Contact contact = contactoptional.get();
 
-		contact.setUser(null);
-
-		this.ContactRepository.delete(contact);
+		User1 user1 = this.UserRepository.getUserbyUsername(currentUser);
+		user1.getContacts().remove(contact);
+		this.UserRepository.save(user1);
 
 		return "redirect:/user/show-contacts/0";
 	}
@@ -214,6 +214,10 @@ public class UserController {
 				//file work
 				
 				//delete old photo
+				File deleteFile = new ClassPathResource("static/img").getFile();
+				File file1 = new File(deleteFile, oldcontactdetail.getImage());
+				file1.delete();
+				
 				
 				//update new photo
 				
