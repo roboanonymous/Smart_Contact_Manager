@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.security.Principal;
 import java.time.LocalDateTime;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ClassPathResource;
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.smart.dao.ContactRepository;
 import com.smart.dao.UserRepository;
 import com.smart.entities.Contact;
 import com.smart.entities.User1;
@@ -34,6 +36,9 @@ public class UserController {
 	
 	@Autowired
 	public UserRepository UserRepository;
+	
+	@Autowired
+	public ContactRepository ContactRepository;
 	
 	
 	// method of adding common data to response
@@ -130,6 +135,22 @@ public class UserController {
 		}
 
 		return "normal/add_contact_form";
+	}
+	
+	// Show Contact handler
+	@GetMapping("/show-contacts")
+	public String showContacts(Model m , Principal principal)
+	{
+		m.addAttribute("title", "Show Contacts : Smart contact Manager");
+		
+		String username = principal.getName();
+		User1 user1 = this.UserRepository.getUserbyUsername(username);
+		
+		List<Contact> contacts = this.ContactRepository.findContactbyUser(user1.getId());
+		
+		m.addAttribute("contacts", contacts);
+		
+		return "normal/show_contacts";
 	}
 
 }
