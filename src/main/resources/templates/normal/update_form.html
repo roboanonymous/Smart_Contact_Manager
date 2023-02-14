@@ -26,6 +26,9 @@
 												class="mt-2"
 											>
 											
+											<!-- Hidden field for contact ID -->
+											<input type="hidden" name="cID" th:value="${contact.cID}"/>
+											
 												<!-- first-name -->
 												<div class="input-group">
 													
@@ -140,7 +143,10 @@
 													<img class="img-fluid show_contact_img" style="height:150px; width:150px" th:src="@{'/img/'+${contact.image}}" alt="" />
 							
 												</div>
+												
 												<p class="text-secondary"> Update new profile pic</p>
+												
+												
 												<!-- image uploading -->
 												<div class="custom-file">
 
@@ -149,7 +155,7 @@
 												 
 												</div>
 												
-							
+							                   
 												
 												<div class="container text-center">
 													<button class="btn btn-outline-success "> Update </button>

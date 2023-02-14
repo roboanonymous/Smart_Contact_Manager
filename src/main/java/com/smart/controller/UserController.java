@@ -201,6 +201,48 @@ public class UserController {
 		return "normal/update_form";
 	}
 	
+	
+	// Update Contact handler
+	@PostMapping("/process-update")
+	public String updateHandler(@ModelAttribute Contact contact ,@RequestParam("profileImage") MultipartFile file, Model m , Principal principal)
+	{
+		try {
+			Contact oldcontactdetail = this.ContactRepository.findById(contact.getcID()).get();
+			
+			if(!file.isEmpty())
+			{
+				//file work
+				
+				//delete old photo
+				
+				//update new photo
+				
+				File saveFile = new ClassPathResource("static/img").getFile();
+
+				java.nio.file.Path path = Paths
+						.get(saveFile.getAbsolutePath() + File.separator + file.getOriginalFilename());
+				Files.copy(file.getInputStream(), path, StandardCopyOption.REPLACE_EXISTING);
+				contact.setImage(file.getOriginalFilename());
+
+				
+			}
+			else
+			{
+				contact.setImage(oldcontactdetail.getImage());
+			}
+			
+			User1 user1 = this.UserRepository.getUserbyUsername(principal.getName());
+			contact.setUser(user1);
+			
+			this.ContactRepository.save(contact);
+		}
+		
+		catch (Exception e) {
+			e.printStackTrace();
+		}
+		return "redirect:/user/"+contact.getcID()+"/contact";
+	}
+	
 	 	 
 
 	/** user profile hander */
