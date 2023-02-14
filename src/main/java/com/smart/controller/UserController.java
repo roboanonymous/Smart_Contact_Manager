@@ -177,8 +177,13 @@ public class UserController {
 		Optional <Contact> contactoptional = this.ContactRepository.findById(cId);
 		Contact contact = contactoptional.get();
 		
-		model.addAttribute("contact", contact);
+		User1 user1 = this.UserRepository.getUserbyUsername(currentUser);
 		
+		if(user1.getId() == contact.getUser().getId())
+		{
+			model.addAttribute("contact", contact);
+		}
+		 
 		
 		return "normal/show_user_contact_details";
 	}
