@@ -7,6 +7,7 @@ import java.nio.file.StandardCopyOption;
 import java.security.Principal;
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.data.web.SpringDataWebProperties.Pageable;
@@ -102,6 +103,7 @@ public class UserController {
 			{
 				// if the file is empty
 				System.out.println("File is empty");
+				contact.setImage("contact.png");
 				
 			}
 			
@@ -160,6 +162,25 @@ public class UserController {
 		m.addAttribute("totalPages", contacts.getTotalPages());
 		
 		return "normal/show_contacts";
+	}
+	
+	
+	/** Show respective contact details */
+	@SuppressWarnings("unlikely-arg-type")
+	@GetMapping("/{cID}/contact")
+	public String showContact(@PathVariable("cID") int cId, Principal principal, Model model ) {
+		System.out.println("CID : "+cId);
+		
+		String currentUser = principal.getName();
+		model.addAttribute("title", "Contact details : Smart contact Manager");
+		
+		Optional <Contact> contactoptional = this.ContactRepository.findById(cId);
+		Contact contact = contactoptional.get();
+		
+		model.addAttribute("contact", contact);
+		
+		
+		return "normal/show_user_contact_details";
 	}
 
 }
