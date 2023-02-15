@@ -70,17 +70,20 @@ Add Contacts
 Show Contacts
 ![Show Contacts](https://github.com/roboanonymous/Smart_Contact_Manager/blob/main/Project_screenshot/9%20Show-contacts.png)
 
-Add Contacts
-![Add Contacts](https://github.com/roboanonymous/Smart_Contact_Manager/blob/main/Project_screenshot/8%20Add-contact.png)
+Pagination
+![Pagination](https://github.com/roboanonymous/Smart_Contact_Manager/blob/main/Project_screenshot/10%20Pagination.png)
 
-Add Contacts
-![Add Contacts](https://github.com/roboanonymous/Smart_Contact_Manager/blob/main/Project_screenshot/8%20Add-contact.png)
+Contact Profile
+![Contact Profile](https://github.com/roboanonymous/Smart_Contact_Manager/blob/main/Project_screenshot/11%20User-profile.png)
 
-Add Contacts
-![Add Contacts](https://github.com/roboanonymous/Smart_Contact_Manager/blob/main/Project_screenshot/8%20Add-contact.png)
+Delete User
+![Delete User](https://github.com/roboanonymous/Smart_Contact_Manager/blob/main/Project_screenshot/12%20Delete-usere.png)
 
-Add Contacts
-![Add Contacts](https://github.com/roboanonymous/Smart_Contact_Manager/blob/main/Project_screenshot/8%20Add-contact.png)
+User Profile
+![User Profile](https://github.com/roboanonymous/Smart_Contact_Manager/blob/main/Project_screenshot/13%20Profile-page.png)
 
-Add Contacts
-![Add Contacts](https://github.com/roboanonymous/Smart_Contact_Manager/blob/main/Project_screenshot/8%20Add-contact.png)
+Logout System
+![Logout](https://github.com/roboanonymous/Smart_Contact_Manager/blob/main/Project_screenshot/14%20Logout%20system.png)
+
+Database
+![Database](https://github.com/roboanonymous/Smart_Contact_Manager/blob/main/Project_screenshot/15%20Database.png)
