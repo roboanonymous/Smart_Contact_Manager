@@ -13,6 +13,13 @@ Smart contact manager helps user to save their data and contact details,It is us
 
 **Server:** Java, SpringBoot, Spring Security, thymeleaf, hibernate
 
+**IDE:** STS
+
+**Build Tool:** Maven
+
+**Database:** PostgreSQL Database
+
+
 
 ## Features
 
@@ -22,6 +29,18 @@ Smart contact manager helps user to save their data and contact details,It is us
 - Pagination
 - Edit and Delete Contacts
 - User Interactive
+
+
+##  Dependency
+
+- Spring web
+- Thymeleaf
+- Spring JPA
+- Spring security
+- Devtools
+- postgreSQL connector
+- Validation API
+- Hibernate validator
 
 
 ## 🛠 Skills
