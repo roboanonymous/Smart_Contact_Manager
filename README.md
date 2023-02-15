@@ -1,6 +1,6 @@
 # Smart_Contact_Manager
 
-Smart contact manager helps user to save their data and contact details,It is user friendly interface in which you can save your contact details like their name , work , profile picture and you can easily delete and update your contacts.
+Smart contact manager is a website helps user save their data and contact details. It has a user friendly interface in which you can save contact details like name, work, profile picture, etc. and also delete and update contacts.
 
 
 ## Authors
@@ -49,10 +49,10 @@ Java, Spring MVC, Spring Boot, Spring Security, thymeleaf, hibernate, HTML, CSS,
 
 ## Lessons Learned
 
-In this project I Learned the basics of spring boot
-Connecting PostgreSQL to our projectwith the help of JPA
-Using spring security for providing good security to user
-Using thymeleaf for Connecting Java backend to frondend
+- In this project I Learned the basics of spring boot
+- Connecting PostgreSQL to our projectwith the help of JPA
+- Using spring security for providing good security to user
+- Using thymeleaf for Connecting Java backend to frondend
 
 
 
