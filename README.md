@@ -38,8 +38,9 @@ Using thymeleaf for Connecting Java backend to frondend
 
 
 
-<!--- ## Screenshots
+ ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)--->
+E-R Diagram
+![E-R Diagram](https://github.com/roboanonymous/Smart_Contact_Manager/blob/main/Project_screenshot/0%20contact%20manager%20E-R%20daigram.png)
 
 
